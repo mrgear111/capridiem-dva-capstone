@@ -130,10 +130,10 @@ The dashboard includes two views:
 
 | Name | Role |
 |------|------|
-| [Sameer Pawar] | [Role] |
-| [Daksh Saini] | [Role] |
-| [Padam Rathi] | [Role] |
-| [Vidhit T S] | [Role] |
+| [Sameer Pawar] | [Documentation &amp; Report Writing] |
+| [Daksh Saini] | [Tableau Dashboard] |
+| [Padam Rathi] | [Dataset &amp; Filtering] |
+| [Vidhit T S] | [Tableau &amp; Pipelines] |
 
 ## Licence
 
