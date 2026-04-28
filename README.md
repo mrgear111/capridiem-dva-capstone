@@ -7,7 +7,7 @@
 
 ## Overview
 
-This project analyses **42,000+ Amazon product listings** to identify the key drivers of product performance, pricing effectiveness, and customer engagement in an e-commerce marketplace. The analysis pipeline covers data extraction, cleaning, exploratory analysis, statistical testing, and interactive dashboard design — delivering actionable recommendations for pricing strategy, category investment, and promotional optimization.
+This project analyses **42,675 Amazon electronics product listings** to identify the key drivers of product performance, pricing effectiveness, and customer engagement in an e-commerce marketplace. The analysis pipeline covers data extraction, cleaning, exploratory analysis, statistical testing, and interactive dashboard design — delivering actionable recommendations for pricing strategy, category investment, and promotional optimization.
 
 ## Problem Statement
 
@@ -15,20 +15,20 @@ In a highly competitive e-commerce environment, understanding product performanc
 
 ## Key Findings
 
-- **Electronics dominates revenue** but carries the highest price volatility — targeted discounts outperform blanket promotions.
-- **Discounts beyond 40% reduce perceived quality** without increasing customer engagement.
-- **Top 5 categories account for ~68% of engagement** — marketing budget should be concentrated here.
-- **₹500–₹2,000 price band** is the optimal zone for customer engagement and review volume.
-- **Best Seller products have 2-3x higher purchase volume** — investing in badge acquisition has measurable ROI.
-- **Coupons outperform percentage discounts** at driving purchase volume.
+- **Other Electronics and Laptops dominate** the catalogue, together accounting for over 40% of all listings.
+- **Most products have zero discount** — the median discount percentage is 0%, with a mean of only 6.5%.
+- **Top 5 categories account for the majority of engagement** — marketing budget should be concentrated here.
+- **Products priced $50–$200** represent the sweet spot for customer engagement and review volume.
+- **Best Seller badge is rare** (only 275 out of 42,675 products) but correlates with higher purchase volumes.
+- **Coupons are uncommon** (only ~1,948 products) but correlate with higher purchased_last_month.
 
 ## Repository Structure
 
 ```
 ├── README.md
 ├── data/
-│   ├── raw/                              # Original dataset (never edited)
-│   └── processed/                        # Cleaned output from pipeline
+│   ├── raw.csv                           # Original dataset (never edited)
+│   └── processed.csv                     # Cleaned output from pipeline
 ├── notebooks/
 │   ├── 01_extraction.ipynb               # Data extraction and initial loading
 │   ├── 02_cleaning.ipynb                 # Data cleaning and ETL pipeline
@@ -53,8 +53,8 @@ In a highly competitive e-commerce environment, understanding product performanc
 |-----------------|----------------------------------------------|
 | **Source**       | [Amazon Products Sales Dataset — 42K+ Items (2025)](https://www.kaggle.com/datasets/ikramshah512/amazon-products-sales-dataset-42k-items-2025) |
 | **Author**       | Ikram Ul Hassan (Kaggle)                     |
-| **Records**      | ~42,000 product listings                     |
-| **Columns**      | 17 features                                  |
+| **Records**      | 42,675 product listings                      |
+| **Columns**      | 18 features                                  |
 | **Licence**      | CC BY-NC 4.0                                 |
 | **Files**        | Cleaned + Uncleaned versions                 |
 
@@ -66,13 +66,14 @@ In a highly competitive e-commerce environment, understanding product performanc
 | `product_rating` | Average customer rating (out of 5) |
 | `total_reviews` | Total number of customer reviews |
 | `purchased_last_month` | Units purchased in the last month |
-| `discounted_price` | Current price after discount (INR) |
-| `original_price` | Original listed price (INR) |
+| `discounted_price` | Current price after discount (USD) |
+| `original_price` | Original listed price (USD) |
 | `discount_percentage` | Percentage discount applied |
-| `is_best_seller` | Best Seller tag (True/False) |
+| `is_best_seller` | Badge status: Best Seller / Amazon's Choice / Limited time deal / No Badge |
 | `is_sponsored` | Sponsored listing (True/False) |
 | `has_coupon` | Coupon availability (True/False) |
-| `product_category` | Assigned product category |
+| `coupon_value` | Coupon detail string (e.g., "Save 15% with coupon") |
+| `product_category` | Assigned category (e.g., Laptops, Phones, Cameras) |
 
 ## Setup & Usage
 
@@ -96,7 +97,7 @@ pip install -r requirements.txt
 python scripts/etl_pipeline.py
 ```
 
-This reads from `data/raw/`, processes the data, and outputs to `data/processed/`.
+This reads from `data/raw.csv`, processes the data, and outputs to `data/processed.csv`.
 
 ### Running Notebooks
 
@@ -123,7 +124,7 @@ Open notebooks in order:
 
 The dashboard includes two views:
 1. **Executive Summary View** — KPI cards, category treemap, discount-vs-rating scatter plot
-2. **Operational Drill-Down View** — Interactive filters by category, price band, discount tier, and Best Seller status
+2. **Operational Drill-Down View** — Interactive filters by category, price band, discount tier, and badge status
 
 ## Team
 
