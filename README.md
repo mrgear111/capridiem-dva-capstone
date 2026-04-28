@@ -130,11 +130,10 @@ The dashboard includes two views:
 
 | Name | Role |
 |------|------|
-| [Name 1] | [Role] |
-| [Name 2] | [Role] |
-| [Name 3] | [Role] |
-| [Name 4] | [Role] |
-| [Name 5] | [Role] |
+| [Sameer Pawar] | [Role] |
+| [Daksh Saini] | [Role] |
+| [Padam Rathi] | [Role] |
+| [Vidhit T S] | [Role] |
 
 ## Licence
 
